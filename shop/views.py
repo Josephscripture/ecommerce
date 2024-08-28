@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from .forms import ProductForm,signupForm,CategoryForm,CartForm
 from django.contrib.auth import login,logout,authenticate
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 
 
 
@@ -48,7 +49,8 @@ def signup_view(request):
 
 
 
-def update_view(request):
+@login_required(login_url='login')
+update_view(request):
     product=ProductForm()
     context={'product':product}
     if request.method =='POST':
@@ -59,8 +61,7 @@ def update_view(request):
 
     return render(request, 'shops/add.html', context)
 
-
-
+@login_required(login_url='login')
 def update_category(request):
     category=CategoryForm()
     context={'category':category}
@@ -71,7 +72,7 @@ def update_category(request):
             return redirect('home')
     return render(request,'shops/category.html',context)
 
-
+@login_required(login_url='login')
 def delete_view(request,pk):
     category=Products.objects.get(pk=pk)
     if request.method=="POST":
