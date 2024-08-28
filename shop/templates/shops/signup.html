@@ -1,0 +1,17 @@
+{% extends 'shops/main.html' %}
+
+
+
+{% block content %}
+<label for="email"  >Email</label><br>
+{{form.email}} <br>
+
+<label for="password1">Input password</label><br>
+{{form.password1}} <br>
+
+<label for="password2"> Confirm password</label><br>
+{{form.password2}} <br>
+
+<button type="submit">Submit</button><br>
+
+{% endblock content%}

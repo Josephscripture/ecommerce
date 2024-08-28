@@ -1,0 +1,24 @@
+
+{% extends 'shops/main.html' %}
+<body>
+    
+
+{% block content %}
+{% for product in products %}
+<div>
+     <p> name:{{product.name}}</p>
+    <p> description:{{product.description}}</p>
+    <p>price:{{product.price}}</p> 
+    <img src="{{ product.image.url}}" alt="mangoes" width="200" height="200">
+
+   <p>{{product.category.name}}</p>
+   <a href="{% url 'delete' product.id %}">Delete</a> 
+
+ 
+   
+</div>
+{% endfor %}
+</body>
+</html>
+{% endblock content%}
+   

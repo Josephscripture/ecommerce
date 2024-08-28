@@ -1,0 +1,15 @@
+{% extends 'shops/main.html' %}
+
+
+{% block content %}
+
+
+<form action="" method="post" >
+    {% csrf_token %}
+    
+{{category.name}}
+<button type="submit">Submit</button>
+</form>
+
+
+{% endblock content %}
